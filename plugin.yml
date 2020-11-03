@@ -1,6 +1,6 @@
 name: YGC_Core
 api: 3.0.0
 version: 1.0.0
-main: zOmArRD\Core\Main
+main: zOmArRD\core\Main
 author: zOmArRD
-description: YGC Clan Core
+description: YGC Clan core

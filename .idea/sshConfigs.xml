@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="sftp://nyc01.witherhosting.com" id="c6ec5250-a413-4a80-95f1-14ff77d38942" port="22" nameFormat="DESCRIPTIVE" username="m19-0146xnk.1aa3e98b" />
+    </configs>
+  </component>
+</project>
