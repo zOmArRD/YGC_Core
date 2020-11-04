@@ -15,7 +15,6 @@ class Kits {
 
         switch ($kit){
             case 0:
-                BossAPI::sendBossBarText($player, "§l§bYGC §7| §6Gapple");
                 $player->setGamemode(0);
                 $player->getInventory()->clearAll();
                 $player->getArmorInventory()->clearAll();
@@ -50,7 +49,7 @@ class Kits {
                 $player->getArmorInventory()->setLeggings($leggings);
                 $player->getArmorInventory()->setBoots($boots);
                 $player->getInventory()->addItem($sword);
-                $player->getInventory()->setItem(1, Item::get(Item::GOLDEN_APPLE, 0, 32));
+                $player->getInventory()->setItem(1, Item::get(Item::GOLDEN_APPLE, 0, 12));
                 break;
         }
     }

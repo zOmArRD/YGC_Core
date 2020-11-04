@@ -9,6 +9,11 @@ use zOmArRD\core\Main;
 use zOmArRD\core\providers\FormAPI\SimpleForm;
 use pocketmine\Player;
 
+/**
+ * Class FormsGames
+ * @package zOmArRD\core\providers
+ * @author zOmArRD
+ */
 class FormsGames {
 
     public static function serversForm(Player $player){
@@ -21,6 +26,7 @@ class FormsGames {
                        Kits::setKit($player, 0);
                        break;
                    default:
+                       $player->sendMessage(Main::PREFIX . "§cHa ocurrido un error.");
                        return;
                }
            }
@@ -29,11 +35,21 @@ class FormsGames {
         $form->setTitle("§l§7» §bYGC §fNetwork §7«");
         $form->setContent("§eSelect which ffa you want to transfer to");
         $images = [
-            "ServerPractice" => "textures/gui/newgui/mob_effects/strength_effect",
+            "gapple" => "textures/items/apple_golden",
+            "fist" => "textures/items/beef_cooked",
+            "nodebuff" => "textures/items/potion_bottle_splash_heal",
+            "scrims" => "textures/items/stick",
         ];
 
-
-        $form->addButton("§7» §6Gapple §7«\n" . "Click to enter to gapple ffa", 0, $images["ServerPractice"]);
+        $pl_gapple = count(Server::getInstance()->getLevelByName("gapple")->getPlayers());
+        $pl_fist = count(Server::getInstance()->getLevelByName("fist")->getPlayers());
+        $pl_nodebuff = count(Server::getInstance()->getLevelByName("nodebuff")->getPlayers());
+        $pl_resistance = count(Server::getInstance()->getLevelByName("resistance")->getPlayers());
+        $form->addButton("§7» §6Gapple §7«\n" . "§a" . $pl_gapple . " §7players", 0, $images["gapple"]);
+        $form->addButton("§7» §cFist §7«\n" . "§a" . $pl_fist . " §7players", 0, $images["fist"]);
+        $form->addButton("§7» §bNoDebuff §7«\n" . "§a" . $pl_nodebuff . " §7players", 0, $images["nodebuff"]);
+        $form->addButton("§7» §gResistance §7«\n" . "§a" . $pl_resistance . " §7players", 0, $images["fist"]);
+        $form->addButton("§7» §dScrims §7«\n" . "§a" . $pl_resistance . " §7players", 0, $images["scrims"]);
         $player->sendForm($form);
     }
 
