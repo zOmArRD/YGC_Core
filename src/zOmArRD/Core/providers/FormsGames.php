@@ -41,7 +41,7 @@ class FormsGames {
                        Kits::setKit($player, 3);
                        break;
                    case 4:
-                      $player->sendMessage(Main::PREFIX. "§7Joining to Fist FFA");
+                      $player->sendMessage(Main::PREFIX. "§7Joining to Scrim");
                        $player->teleport(new Position(257, 39, 256, Server::getInstance()->getLevelByName("scrim")));
                        Kits::setKit($player, 4);
                        break;

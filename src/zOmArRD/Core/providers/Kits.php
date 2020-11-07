@@ -67,6 +67,11 @@ class Kits {
 
                 break;
             case 2:
+                $player->setGamemode(0);
+                $player->getInventory()->clearAll();
+                $player->getArmorInventory()->clearAll();
+                $player->setAllowFlight(false);
+                $player->setFlying(false);
                 $helmet = Item::get(Item::DIAMOND_HELMET, 0, 1);
                 $chestplate = Item::get(Item::DIAMOND_CHESTPLATE, 0, 1);
                 $leggings = Item::get(Item::DIAMOND_LEGGINGS, 0, 1);
