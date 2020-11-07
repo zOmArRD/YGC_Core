@@ -18,6 +18,8 @@ class Kits {
                 $player->setGamemode(0);
                 $player->getInventory()->clearAll();
                 $player->getArmorInventory()->clearAll();
+                $player->setAllowFlight(false);
+                $player->setFlying(false);
                 $helmet = Item::get(Item::DIAMOND_HELMET, 0, 1);
                 $chestplate = Item::get(Item::DIAMOND_CHESTPLATE, 0, 1);
                 $leggings = Item::get(Item::DIAMOND_LEGGINGS, 0, 1);
@@ -50,6 +52,18 @@ class Kits {
                 $player->getArmorInventory()->setBoots($boots);
                 $player->getInventory()->addItem($sword);
                 $player->getInventory()->setItem(1, Item::get(Item::GOLDEN_APPLE, 0, 12));
+                break;
+            case 4:
+                $player->setGamemode(0);
+                $player->getInventory()->clearAll();
+                $player->getArmorInventory()->clearAll();
+                $player->setAllowFlight(false);
+                $player->setFlying(false);
+                $scrim = Item::get(320, 0, 32);
+
+                $player->getInventory()->addItem($scrim);
+                break;
+            default:
                 break;
         }
     }

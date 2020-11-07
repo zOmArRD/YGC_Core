@@ -5,9 +5,12 @@ namespace zOmArRD\core;
 
 use pocketmine\network\mcpe\protocol\types\SkinAdapterSingleton;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\Config;
 use zOmArRD\core\events\DataPacketListener;
 use zOmArRD\core\events\ItemListener;
 use zOmArRD\core\events\PlayerListener;
+use zOmArRD\core\providers\KillsManager;
+use zOmArRD\core\tasks\YGCScore;
 use zOmArRD\core\utils\ParsonaSkinAdapter;
 
 /**
@@ -20,6 +23,10 @@ class Main extends PluginBase
 
     /** @var $instance */
     public static $instance;
+
+    private $data = null;
+
+    private $kills = false;
 
     /** @var null $originalAdaptor */
     private $originalAdaptor = null;
@@ -50,12 +57,12 @@ class Main extends PluginBase
     {
 
         $server = $this->getServer();
-
         $logger = $this->getLogger();
 
         /** @var  originalAdaptor */
         $this->originalAdaptor = SkinAdapterSingleton::get();
         SkinAdapterSingleton::set(new ParsonaSkinAdapter());
+
 
         $lobby = $server->getLevelByName("lobby13");
         $lobby->setTime(0);
@@ -64,7 +71,10 @@ class Main extends PluginBase
         $this->registerEvents();
 
         $logger->info("§aPlugin enabled");
+
+        $this->getScheduler()->scheduleRepeatingTask(new YGCScore(), 20);
     }
+
 
     public function registerEvents() : void {
         $manager = $this->getServer()->getPluginManager();

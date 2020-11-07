@@ -22,8 +22,13 @@ class FormsGames {
                switch ($data){
                    case 0:
                        $player->sendMessage(Main::PREFIX. "§7Joining to Gapple FFA");
-                       $player->teleport(new Position(249.00, 23.00, 253.00, Server::getInstance()->getLevelByName("gapple")));
+                       $player->teleport(new Position(249.00, 43.00, 253.00, Server::getInstance()->getLevelByName("gapple")));
                        Kits::setKit($player, 0);
+                       break;
+                   case 4:
+                      $player->sendMessage(Main::PREFIX. "§7Joining to Fist FFA");
+                       $player->teleport(new Position(257, 29, 255, Server::getInstance()->getLevelByName("scrim")));
+                       Kits::setKit($player, 4);
                        break;
                    default:
                        $player->sendMessage(Main::PREFIX . "§cHa ocurrido un error.");
@@ -45,11 +50,12 @@ class FormsGames {
         $pl_fist = count(Server::getInstance()->getLevelByName("fist")->getPlayers());
         $pl_nodebuff = count(Server::getInstance()->getLevelByName("nodebuff")->getPlayers());
         $pl_resistance = count(Server::getInstance()->getLevelByName("resistance")->getPlayers());
+        $pl_scrim = count(Server::getInstance()->getLevelByName("scrim")->getPlayers());
         $form->addButton("§7» §6Gapple §7«\n" . "§a" . $pl_gapple . " §7players", 0, $images["gapple"]);
         $form->addButton("§7» §cFist §7«\n" . "§a" . $pl_fist . " §7players", 0, $images["fist"]);
         $form->addButton("§7» §bNoDebuff §7«\n" . "§a" . $pl_nodebuff . " §7players", 0, $images["nodebuff"]);
         $form->addButton("§7» §gResistance §7«\n" . "§a" . $pl_resistance . " §7players", 0, $images["fist"]);
-        $form->addButton("§7» §dScrims §7«\n" . "§a" . $pl_resistance . " §7players", 0, $images["scrims"]);
+        $form->addButton("§7» §dScrims §7«\n" . "§a" . $pl_scrim . " §7players", 0, $images["scrims"]);
         $player->sendForm($form);
     }
 

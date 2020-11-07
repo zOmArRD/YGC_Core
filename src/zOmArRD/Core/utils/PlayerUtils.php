@@ -11,6 +11,7 @@ use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat as TE;
+use zOmArRD\core\providers\BossAPI;
 
 /**
  * Trait PlayerUtils
@@ -56,6 +57,11 @@ trait PlayerUtils{
 
         $stats = Item::get(397, 3, 1);
         $stats->setCustomName("§7§l» §aProfile & Stats §7«");
+
+        $player->getArmorInventory()->clearAll();
+        $player->getInventory()->clearAll();
+        $player->removeAllEffects();
+        BossAPI::sendBossBarText($player, "§l§bYGC §fNetwork");
 
         $player->getInventory()->setItem(1, $cosmetics);
 
