@@ -25,9 +25,24 @@ class FormsGames {
                        $player->teleport(new Position(249.00, 43.00, 253.00, Server::getInstance()->getLevelByName("gapple")));
                        Kits::setKit($player, 0);
                        break;
+                   case 1:
+                       $player->sendMessage(Main::PREFIX. "§7Joining to Fist FFA");
+                       $player->teleport(new Position(256.00, 39.00, 257.00, Server::getInstance()->getLevelByName("fist")));
+                       Kits::setKit($player, 1);
+                       break;
+                   case 2:
+                       $player->sendMessage(Main::PREFIX. "§7Joining to NoDebuff FFA");
+                       $player->teleport(new Position(256.00, 34.00, 256.00, Server::getInstance()->getLevelByName("nodebuff")));
+                       Kits::setKit($player, 2);
+                       break;
+                   case 3:
+                       $player->sendMessage(Main::PREFIX. "§7Joining to Resistance FFA");
+                       $player->teleport(new Position(255.00, 34.00, 255.00, Server::getInstance()->getLevelByName("nodebuff")));
+                       Kits::setKit($player, 3);
+                       break;
                    case 4:
                       $player->sendMessage(Main::PREFIX. "§7Joining to Fist FFA");
-                       $player->teleport(new Position(257, 29, 255, Server::getInstance()->getLevelByName("scrim")));
+                       $player->teleport(new Position(257, 39, 256, Server::getInstance()->getLevelByName("scrim")));
                        Kits::setKit($player, 4);
                        break;
                    default:
